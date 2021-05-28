@@ -52,3 +52,13 @@ Please fix this, or set `pluginsFile` to `false` if a plugins file is not necess
 ```
 
 - when importing directly in the test, it seems to work, added tasks per cypress-axe documentation
+
+- adding pipeline to show working using <https://github.com/cypress-io/github-action#basic> but get an error:
+
+```
+Error: Webpack Compilation Error
+./node_modules/cypress-axe/dist/index.js
+Module not found: Error: Can't resolve 'axe-core/axe.min.js' in '/home/runner/work/cypress-7-axe/cypress-7-axe/node_modules/cypress-axe/dist'
+resolve 'axe-core/axe.min.js' in '/home/runner/work/cypress-7-axe/cypress-7-axe/node_modules/cypress-axe/dist'
+  Parsed request is a module
+```
