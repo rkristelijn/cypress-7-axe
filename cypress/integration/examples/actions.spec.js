@@ -1,8 +1,11 @@
 /// <reference types="cypress" />
 
+require('cypress-axe')
+
 context('Actions', () => {
   beforeEach(() => {
     cy.visit('https://example.cypress.io/commands/actions')
+    cy.injectAxe()
   })
 
   // https://on.cypress.io/interacting-with-elements
@@ -31,6 +34,17 @@ context('Actions', () => {
       // like whether the input is visible or disabled
       .type('disabled error checking', { force: true })
       .should('have.value', 'disabled error checking')
+
+    cy.checkA11y(
+      null, //context
+      null, //options
+      function (data) {
+        cy.task('table', data);
+      }, //violation callback
+      { 
+        skipFailures: true
+      }
+    )
   })
 
   it('.focus() - focus on a DOM element', () => {
